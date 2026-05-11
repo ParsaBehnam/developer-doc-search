@@ -1,8 +1,8 @@
 from web_crawler import WebCrawler
 
 def main():
-    wc = WebCrawler('https://developer.mozilla.org/en-US/docs/Web')
-    print(wc.process_page(wc.start_url, 2))
+    wc = WebCrawler('https://developer.mozilla.org/en-US/docs/Web', 1)
+    print(wc.crawl())
 
 
    

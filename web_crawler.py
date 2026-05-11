@@ -59,8 +59,14 @@ class WebCrawler:
 
             print(f"Found {len(links)} links")
 
-            content = ' '.join([paragraph.text for paragraph in soup.find_all('p')])
-            content = re.sub(r'[\n\r\t]', '', content)
+            main_content = soup.find('main')
+            
+            if main_content:
+                content = ' '.join([paragraph.get_text(strip=True) for paragraph in main_content.find_all('p')])
+                content = re.sub(r'[\n\r\t]', '', content)
+
+            else:
+                content = ''
 
             title = soup.title.text.strip() if soup.title else "No Title"
         except requests.RequestException: 

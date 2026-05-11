@@ -5,11 +5,17 @@ def parse_html(html):
 
     title = soup.title.text
 
-    headings = soup.find_all('h')
+    headings = [
+        heading.text.strip() for heading in soup.find_all('h2')
+    ]
 
-    paragraphs = soup.find_all('p')
+    paragraphs = [
+        paragraph.text.strip() for paragraph in soup.find_all('p')
+    ]
 
-    links = soup.find_all('a')
+    links = [
+        link.get('href') for link in soup.find_all('a')
+    ]
 
     return {
         "title": title,

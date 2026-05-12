@@ -15,7 +15,7 @@ def create_database():
     conn.commit()
     conn.close()
 
-def insert_into_article(url, title, content):
+def insert_into_articles(url, title, content):
     conn = sqlite3.connect('./data/articles.db')
     cursor = conn.cursor()
 

@@ -22,10 +22,10 @@ class WebCrawler:
                 print(f'Could not crawl the web page --> STATUS CODE: {response.status_code}')
 
         except requests.HTTPError as e:
-            print(f'HTTP error occured --> {e}')
+            print(f'HTTP error occurred --> {e}')
 
         except Exception as e:
-            print(f'an error occured --> {e}')
+            print(f'an error occurred --> {e}')
 
     def process_page(self, url, depth):
         if depth > self.max_depth:
@@ -59,7 +59,7 @@ class WebCrawler:
 
             print(f"Found {len(links)} links")
 
-            main_content = soup.find('main')
+            main_content = soup.find('main', id = 'content')
             
             if main_content:
                 content = ' '.join([paragraph.get_text(strip=True) for paragraph in main_content.find_all('p')])

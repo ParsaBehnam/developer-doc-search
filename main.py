@@ -1,5 +1,5 @@
 from web_crawler import WebCrawler
-from db import create_database, insert_into_article
+from db import create_database, insert_into_articles
 
 def main():
     create_database()
@@ -9,7 +9,7 @@ def main():
     data = wc.crawl()
 
     for url, article in data.items():
-        insert_into_article(url, article['title'], article['content'])
+        insert_into_articles(url, article['title'], article['content'])
 
 if __name__ == "__main__":
     main()
